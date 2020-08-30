@@ -4,7 +4,7 @@ networks:
   laravel:
 
 services:
-  site:
+  nginx:
     image: nginx:stable-alpine
     container_name: nginx
     ports:
@@ -40,6 +40,7 @@ services:
       context: .
       dockerfile: php.dockerfile
     container_name: php
+    user: 1000:1000
     volumes:
       - ./src:/var/www/html
     ports:
